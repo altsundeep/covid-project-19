@@ -173,17 +173,14 @@ background:darkcyan;
 
 
 #show-data-list p {
-  visibility: hidden;
     border:2px solid #eee;
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
     background-color:#eee;
-    box-shadow:1px 2px 3px #000;
-    
+    box-shadow:2px 2px 3px 1px darkgrey;    
   }
 
-/* The heart of the matter */
 
 
 .icon {
@@ -253,8 +250,13 @@ div.scrollmenu p {
 
 div.scrollmenu  {
   
+  
 }
 
+
+#show-data-list {
+  visibility:hidden;
+}
 #search-list-hidden{
 visibility: hidden;
 }

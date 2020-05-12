@@ -143,7 +143,7 @@ axios
         const {
           data: { zones },
         } = res5;
- 
+
         zones.forEach((element) => {
           array2.push(element);
         });
@@ -170,9 +170,7 @@ axios
               <span id='search-list'> <span id='search-list-dea'> Deaths: </span> ${el.deceased}</span><br/> 
               <span id='search-list'> <span id='search-list-dea'> Zone: </span> ${el.zone}</span></p>`;
         });
-        if (search.value === "") {
-          alld = [];
-        }
+        
 
         let f = alld
           .filter((el) => {
@@ -180,8 +178,17 @@ axios
           })
           .join("");
 
-        let d = document.getElementById("show-data-list").style.visibility="visible"
-        d.innerHTML += f;
+
+        if (search.value === "") {
+          alld = [];
+          document.getElementById("show-data-list").style.visibility = "hidden"
+        }
+        else{
+          document.getElementById("show-data-list").style.visibility = "visible"
+          document.getElementById("show-data-list").innerHTML += f;
+
+        }
+
 
       });
 
