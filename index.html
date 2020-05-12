@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 tracker</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/src/JS/App.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script defer src="/src/JS/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: darkcyan;">
+        <a class="navbar-brand" href=""> <img id="logo" height="48px" class="d-inline-block align-center"
+                src="/src/assets/logo.png" alt="" /> Covid-19 tracker India</a><br>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent"
+            aria-controls="navbarSupportContent" aria-expanded="false" area-label="Toggle-navigation">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collpase navbar-collapse" id="navbarSupportContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <p class="float-right p-2" style=" margin-right: 25px; margin-bottom: 5px;">Last upadated:<span
+            id='lastUpdated'></span></p>
+    <div class="main my-5 text-center">
+        <div class="form-group my-5 search  text-center">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input id="search" type="text" value="" class="form-control" placeholder="enter district, state name">
+        </div>
+    </div>
+
+    <div class="container-fluid testimonial-group">
+       
+            
+            <div class="scrollmenu">
+                <div id="show-data-list"><p></p></div>
+            </div>
+            
+        
+    </div> 
+        
+   
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <table class="table table table-sm">
+                    <th colspan="4">
+                        <p> Overall Covid-19 Stats</span></p>
+                    </th>
+                    <tr>
+                        <td>Total confirmed</td>
+                        <td>Discharged</td>
+                        <td>Deaths</td>
+                        <td>Total Cases</td>
+                    </tr>
+                    <tr>
+                        <td><span id='ps1'></span></td>
+                        <td><span id='ps2'></span></td>
+                        <td><span id='ps3'></span></td>
+                        <td><span id='ps4'></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <table class="table table table-sm">
+                    <th colspan="4">
+                        <p> Last Upadted data On: <span id='date'></span></p>
+                    </th>
+                    <tr>
+                        <td>Total confirmed</td>
+                        <td>Total Recovered</td>
+                        <td>Deaths</td>
+                    </tr>
+                    <tr>
+                        <td><span id='Rs1'></span></td>
+                        <td><span id='Rs2'></span></td>
+                        <td><span id='Rs3'></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <table class="table table table-sm">
+                    <th colspan="3">
+                        <p> Data Updated On: <span id='smp3'></span></p>
+                    </th>
+                    <tr>
+                        <td>Total Samples Tested</td>
+                        <td> Data Source :</td>
+                    </tr>
+                    <tr>
+                        <td><span id='smp2'></span></td>
+                        <td> <a href="#" id="link">View ICMR Data</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="dailyStates"></div>
+    </div>
+    <div class="container m-auto">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-sm table-responsive">
+                    <thead>
+                        <tr>
+                            <th colspan="4">Coranvirus Cases(Statewise) data</th>
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <th>Total Cases</th>
+                            <th>Discharged</th>
+                            <th>Deaths</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="cover-img text-center">
+                    <img class="img-fluid text-center" src="/src/assets/covid19_side.png" alt="">
+                </div>
+
+                <div class="container">
+                    <canvas class="p-2" height="350px" id="myChart">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="p-2 h33 text-center bg-darkcyan"> How to pravent youself from covid-19 </h3>
+    <div class="container-fluid text-center">
+        <div class="row p-5 bg-light">
+            <div class="col-md-3">
+                <img id="covid-btm-img" src="/src/assets/covid_wear_mask.png" alt="">
+            </div>
+            <div class="col-md-3">
+                <img id="covid-btm-img" src="/src/assets/covid_wash_hands.png" alt="">
+            </div>
+            <div class="col-md-3">
+                <img id="covid-btm-img" src="/src/assets/social_distancing.png" alt="">
+            </div>
+            <div class="col-md-3">
+                <img id="covid-btm-img" src="/src/assets/covid_visit_doctor.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row dLink">
+            <div class="col-md-3">
+                <span class="icon">
+                    <img src="/src/assets/hands-and-gestures.png" alt="" srcset=""></span>
+                <div class="content">
+                    <h3 class="">Wash your hands</h3>
+                    <p>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <span class="icon">
+                    <img src="/src/assets/social.png" alt="" srcset=""> </span>
+
+                <div class="content">
+                    <h3 class="">Social Distancing</h3>
+                    <p>Maintain a safe distance from anyone who is coughing or sneezing.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <span class="icon">
+                    <img src="/src/assets/bacteria.png" alt="" srcset=""> </span>
+                <div class="content">
+                    <h3 class="">Mask your face</h3>
+                    <p>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</p>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <span class="icon">
+                    <img src="/src/assets/surgeon.png" alt="" srcset="">
+                </span>
+                <div class="content">
+                    <h3 class="">consult with doctor</h3>
+                    <p>If you have a fever, a cough, and difficulty breathing, seek medical attention. Call in
+                        advance.
+                        Follow the directions of your local health authority.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1 class="p-3 small text-white text-center">Made with <span id="heart"> ❤ </span>by <span
+                id="ft">Sandeep</span></h1>
+    </footer>
+</body>
+
+</html>

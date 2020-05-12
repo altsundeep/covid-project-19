@@ -1,0 +1,259 @@
+ *{
+   padding:0;
+   margin: 0;
+ }
+ 
+ table {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+td {
+color:rgb(2, 58, 58);  
+padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 3px;
+  font-weight: 600;
+  border-collapse: collapse;
+}
+
+td:nth-child(1){
+text-align: left;
+}
+
+tr:nth-child(odd){
+  background-color:#bac0c0;
+}
+
+    th{
+  color: rgb(255, 255, 255);  
+  padding-top: 5px;
+  background-color:darkcyan;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  border-collapse: collapse;}
+
+    .search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.search .form-control {
+    padding-left: 2.375rem;
+}
+
+#asset-1{
+    height: 250px;
+    padding: 20px;
+}
+
+h3{
+    color: #fff;
+    font-size: 22px;
+}
+footer  {
+background: rgba(21, 155, 155, 1);
+    position:sticky;
+    position:-webkit-sticky;
+    height: 50px;
+    width: 100%;
+    bottom:0px;
+    z-index: 1;
+}
+
+.cover-img img {
+    height: auto;
+    width:450px;
+    padding:25px;
+    
+}
+
+
+
+ table {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+td {
+color:rgb(2, 58, 58);  
+padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 7px;
+    border: 2px solid #fff;
+  font-weight: 600;
+  border-collapse: collapse;
+}
+
+td:nth-child(1){
+text-align: left;
+}
+
+tr:nth-child(odd){
+background-color:rgb(193, 240, 240);}
+
+    th{
+  color: rgb(255, 255, 255);  
+  padding-top: 5px;
+  background-color:darkcyan;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  text-align: center;
+  border-collapse: collapse;}
+
+    .search .form-control-feedback{
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 3.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.main {
+    width: 50%;
+   margin: 50% auto;
+
+}
+
+.search .form-control {
+    padding-left: 2.375rem;
+    font-size: 24.33px;
+}
+
+#covid-btm-img{
+    height: 220px;
+    padding: 20px;
+    
+}
+
+h3{
+    color: #fff;
+    font-size: 22px;
+}
+footer  {
+background:darkcyan;
+    position:sticky;
+    position:-webkit-sticky;
+    height: 50px;
+    width: 100%;
+    bottom:0px;
+    z-index: 1;
+}
+
+.cover-img img {
+    height: auto;
+    width:450px;
+    
+}
+
+
+
+#show-data-list p {
+    border:2px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    background-color:#eee;
+    box-shadow:1px 2px 3px #000;
+    
+  }
+
+/* The heart of the matter */
+
+
+.icon {
+  font-size: 40px;
+  float: left;
+  position: relative;
+  top: 10px;
+  color: darkcyan;
+  padding: 25px;
+  
+  
+}
+
+.icon img{
+  width: 64px;
+  height:64px
+
+}
+
+.content {
+  margin-top: 0px;
+  margin-left: 60px;
+  padding-top: 40px;
+  
+}
+
+.content h3{
+  font-size: 22px;
+}
+
+.content p{
+  color: #bac0c0;
+}
+
+.dLink{
+  background-color: darkcyan;
+  padding-top: 25px;
+}
+.h33{
+  font-size: 20px;
+  padding: 15px;
+  background-color: darkcyan;
+}
+
+ /* The heart of the matter */
+/* .testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .col-xs-4 {
+  display: inline-block;
+  float: none;
+} */
+
+
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu p {
+  display: inline-block;
+  color: rgb(14, 2, 2);
+  text-align: center;
+  padding: 14px;
+}
+
+div.scrollmenu  {
+  
+}
+
+#search-list-hidden{
+visibility: hidden;
+}
