@@ -173,6 +173,7 @@ background:darkcyan;
 
 
 #show-data-list p {
+  visibility: hidden;
     border:2px solid #eee;
     border-radius: 5px;
     padding: 10px;

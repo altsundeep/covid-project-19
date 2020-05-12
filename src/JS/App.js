@@ -180,7 +180,9 @@ axios
           })
           .join("");
 
-        document.getElementById("show-data-list").innerHTML += f;
+        let d = document.getElementById("show-data-list").style.visibility="visible"
+        d.innerHTML += f;
+
       });
 
       /***
