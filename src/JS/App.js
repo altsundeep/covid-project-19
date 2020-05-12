@@ -176,7 +176,7 @@ axios
 
         let f = alld
           .filter((el) => {
-            return el.toLowerCase().includes(search.value) || el.toUpperCase().includes(search.value);
+            return el.toLowerCase().includes(search.value) || el.includes(search.value);
           })
           .join("");
 
