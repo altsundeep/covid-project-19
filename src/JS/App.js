@@ -84,16 +84,16 @@ axios
        */
 
       let summaryData = res2.data.data.summary;
-
       document.getElementById("ps1").innerHTML =
-        summaryData.confirmedCasesIndian;
+      summaryData.confirmedCasesIndian;
       document.getElementById("ps2").innerHTML = summaryData.discharged;
       document.getElementById("ps3").innerHTML = summaryData.deaths;
       document.getElementById("ps4").innerHTML = summaryData.total;
-
       /**
        * Summary[Ends]
        */
+
+
 
       /***
        * search block[start]
@@ -109,12 +109,12 @@ axios
         const statesList = res2.data.data.regional;
         const data = search.value.toLowerCase();
         let state = statesList.filter((el) => {
-          return el.loc.toLowerCase().includes(data);
+        return el.loc.toLowerCase().includes(data);
         });
 
         if (data.length === 0) {
           state = [];
-        }
+        } 
 
         const htmlString = state
           .map((state) => {
@@ -125,9 +125,8 @@ axios
                 <span id='search-list'> <span id='search-list-dea'> Deaths: </span> ${state.deaths}</span><br/>
                  <span id='search-list'> <span id='search-list-hidden'> ..... </span> </span><br/>
                   <span id='search-list'> <span id='search-list-hidden'>.....  </span> </span> </p>`;
-          })
-          .join("");
-        document.getElementById("show-data-list").innerHTML = htmlString;
+          }).join("");
+      document.getElementById("show-data-list").innerHTML = htmlString;
       };
 
       /***

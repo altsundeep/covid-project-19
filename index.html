@@ -7,9 +7,9 @@
     <title>Covid-19 tracker</title>
     <!-- <link rel="stylesheet" href="/style.css"> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/covid-project-19/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/covid-project-19/src/JS/App.js"></script>
+    <script src="/src/JS/App.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -19,41 +19,40 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: darkcyan;">
-        <a class="navbar-brand" href=""> <img id="logo" height="48px" class="d-inline-block align-center"
-                src="/covid-project-19/src/assets/logo.png" alt="" /> Covid-19 tracker India</a><br>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent"
-            aria-controls="navbarSupportContent" aria-expanded="false" area-label="Toggle-navigation">
-            <span class="navbar-toggler-icon"> </span>
-        </button>
-        <div class="collpase navbar-collapse" id="navbarSupportContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">About</a>
-                </li>
-            </ul>
+
+
+
+<!--  -->
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkcyan;">
+    <a class="navbar-brand" href=""> <img id="logo" height="48px" class="d-inline-block align-center"
+            src="/src/assets/logo.png" alt="" /> Covid-19 tracker India</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav float-right">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">About</a>
+            <a class="nav-item nav-link" href="#">Credits</a>
         </div>
-    </nav>
+    </div>
+</nav>
+  
     <p class="float-right p-2" style=" margin-right: 25px; margin-bottom: 5px;">Last upadated:<span
             id='lastUpdated'></span></p>
-    <div class="main my-5 text-center">
+    <div class="main my-2 text-center">
         <div class="form-group my-5 search  text-center">
             <span class="fa fa-search form-control-feedback"></span>
-            <input id="search" type="text" value="" class="form-control" placeholder="enter district, state name">
+            <input id="search" type="text" value="" class="form-control" placeholder="enter district, state...">
         </div>
     </div>
 
     <div class="container-fluid testimonial-group">
-       
-            
             <div class="scrollmenu">
-                <div id="show-data-list"><p></p></div>
-            </div>
-            
-        
+            <div id="show-data-list"><p></p></div>
+            </div> 
     </div> 
         
    

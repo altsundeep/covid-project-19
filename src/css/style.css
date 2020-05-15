@@ -173,11 +173,12 @@ background:darkcyan;
 
 
 #show-data-list p {
+  color:#fff ;
     border:2px solid #eee;
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    background-color:#eee;
+    background-color:#008b8b;
     box-shadow:2px 2px 3px 1px darkgrey;    
   }
 
@@ -225,16 +226,6 @@ background:darkcyan;
   background-color: darkcyan;
 }
 
- /* The heart of the matter */
-/* .testimonial-group > .row {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.testimonial-group > .row > .col-xs-4 {
-  display: inline-block;
-  float: none;
-} */
-
 
 div.scrollmenu {
   overflow: auto;
@@ -248,9 +239,7 @@ div.scrollmenu p {
   padding: 14px;
 }
 
-div.scrollmenu  {
-  
-  
+div.scrollmenu  {  
 }
 
 
