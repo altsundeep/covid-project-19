@@ -4,12 +4,13 @@ var URL = "https://api.covid19india.org/data.json"
 
 axios.all([axios.get(URL)])
     .then(axios.spread((res1) => {
-
        var confirmedCase = []
        var recoveredCase = []
        var decreasedCase = []
        var dates = []
-       var testStates = res1.data.cases_time_series
+       
+       
+       const testStates = res1.data.cases_time_series
         // console.log(testStates);
 
         for (var i in testStates) {
@@ -32,23 +33,23 @@ axios.all([axios.get(URL)])
                 type: 'line',
 
                 data: {
-                    labels: dates,
+                    labels: dates.slice(-7),
                     datasets: [{
                         label: 'Confirmed',
                         fillColor: "rgba(220,220,220,0.2)",
                         borderColor: 'rgb(0,0,205)',
-                        data: confirmedCase
+                        data: confirmedCase.slice(-7)
 
                     }, {
                             label: 'Recoverd',
                             fillColor: "rgba(220,220,220,0.2)",
                             borderColor: 'rgb(0,128,0)',
-                            data: recoveredCase
+                            data: recoveredCase.slice(-7)
                         }, {
                             label: 'Deaths',
                             fillColor: "rgba(220,220,220,0.2)",
                             borderColor: 'rgb(255,0,0)',
-                            data: decreasedCase
+                            data: decreasedCase.slice(-7)
                         },
 
                 ]
