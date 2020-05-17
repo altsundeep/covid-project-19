@@ -109,12 +109,12 @@ axios
         const statesList = res2.data.data.regional;
         const data = search.value.toLowerCase();
         let state = statesList.filter((el) => {
-        return el.loc.toLowerCase().includes(data);
+          return el.loc.toLowerCase().includes(data);
         });
 
         if (data.length === 0) {
           state = [];
-        } 
+        }
 
         const htmlString = state
           .map((state) => {
@@ -126,7 +126,7 @@ axios
                  <span id='search-list'> <span id='search-list-hidden'> ..... </span> </span><br/>
                   <span id='search-list'> <span id='search-list-hidden'>.....  </span> </span> </p>`;
           }).join("");
-      document.getElementById("show-data-list").innerHTML = htmlString;
+        document.getElementById("show-data-list").innerHTML = htmlString;
       };
 
       /***
@@ -169,7 +169,7 @@ axios
               <span id='search-list'> <span id='search-list-dea'> Deaths: </span> ${el.deceased}</span><br/> 
               <span id='search-list'> <span id='search-list-dea'> Zone: </span> ${el.zone}</span></p>`;
         });
-        
+
 
         let f = alld
           .filter((el) => {
@@ -182,7 +182,7 @@ axios
           alld = [];
           document.getElementById("show-data-list").style.visibility = "hidden"
         }
-        else{
+        else {
           document.getElementById("show-data-list").style.visibility = "visible"
           document.getElementById("show-data-list").innerHTML += f;
 
@@ -223,8 +223,6 @@ axios
         let tc = testStates[i].totalconfirmed;
         let tr = testStates[i].totalrecovered;
         let td = testStates[i].totaldeceased;
-        let tcases = tr+td 
-
 
         let date = testStates[i].date;
 
@@ -232,10 +230,10 @@ axios
         document.getElementById("Rs2").innerHTML = dailyRecovered;
         document.getElementById("Rs3").innerHTML = dailyDeaths;
         document.getElementById("date").innerHTML = date;
-        document.getElementById("ps1").innerHTML = tc - tcases;
+        document.getElementById("ps1").innerHTML = (tc - tr) - td;
         document.getElementById("ps2").innerHTML = tr;
-      document.getElementById("ps3").innerHTML = td;
-      document.getElementById("ps4").innerHTML = tc;
+        document.getElementById("ps3").innerHTML = td;
+        document.getElementById("ps4").innerHTML = tc;
 
       }
       for (let i in totalTested) {
