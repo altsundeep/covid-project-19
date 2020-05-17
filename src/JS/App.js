@@ -10,12 +10,12 @@ axios
   ])
   .then(
     axios.spread((res1, res3, res5) => {
-      var col = document.getElementById("myTable");
+      let col = document.getElementById("myTable");
+      let vol = document.getElementById("myTable0")
 
     /**
 
-
-      /**Table Data[Start] */
+  /**Table Data[Start] */
 
       const { data: { statewise } } = res1
 
@@ -29,19 +29,19 @@ axios
     <td> ${statewise[i].deaths}<span id="deltadeceased">+${statewise[i].deltadeaths} </span>      </td> 
     </tr>`;
 
-        let act = statewise[0].active
-        let con = statewise[0].confirmed
-        let rec = statewise[0].recovered
-        let mortal = statewise[0].deaths
 
-        document.getElementById("ps1").innerHTML = act
-        document.getElementById("ps2").innerHTML = rec;
-        document.getElementById("ps3").innerHTML = mortal;
-        document.getElementById("ps4").innerHTML = con;
-        col.innerHTML += row;
+       let mTab1 = `
+    <tr>
+    <td> ${statewise[0].active}             </td>
+    <td> ${statewise[0].confirmed}<span id="deltaconfirmed">+${statewise[0].deltaconfirmed}</span></td>
+    <td> ${statewise[0].recovered}<span id="deltarecovered">+${statewise[0].deltarecovered} </span>      </td>
+    <td> ${statewise[0].deaths}<span id="deltadeceased">+${statewise[0].deltadeaths} </span>      </td> 
+    </tr>`;
+
+      col.innerHTML += row;
+      vol.innerHTML = mTab1
+
       }
-
-
       /***
        * Table Data[Ends]
        */
@@ -49,60 +49,17 @@ axios
       // / Date format[Start]
       //   * /
 
-
-     
      let mDate = statewise.map(el=>{
        return el.lastupdatedtime;}
       
       )
-     
 
     let dd = mDate.shift();
-    console.log(dd);
-
-    
-    
-  
-    // let date = new Date(Date.parse(dd));
-    // console.log(date);
-    
-
-      // var myDate = date.getDate();
-      // var myMonth = date.getMonth();
-      // var myYear = date.getFullYear();
-      // var myDay = date.getDay();
-
-      // var mDayByName = [
-      //   "Sunday",
-      //   "Monday",
-      //   "Tueday",
-      //   "Wednesday",
-      //   "Thursday",
-      //   "Friday",
-      //   "Saturday",
-      // ];
-      // var month = [
-      //   "Jan",
-      //   "Feb",
-      //   "Mar",
-      //   "Apr",
-      //   "May",
-      //   "Jun",
-      //   "Jul",
-      //   "Aug",
-      //   "Sep",
-      //   "Oct",
-      //   "Nov",
-      //   "Dec",
-      // ];
-
-      // var m = month[myMonth];
-
-      // var let = mDayByName[myDay];
-
-      // var fullDate = ` ${let} , ${myDate}  ${m}  ${myYear}`;
-
-      document.getElementById("lastUpdated").innerHTML = dd;
+    let mLastModified = document.lastModified
+    let date = new Date(mLastModified)
+    let hours = date.getHours()
+    console.log(hours);
+    document.getElementById("lastUpdated").innerHTML = mLastModified;
 
     /**Date format[Ends] */
 
@@ -213,15 +170,10 @@ axios
         let tr = mTestingData[i].totalrecovered;
         let td = mTestingData[i].totaldeceased;
         let date = mTestingData[i].date;
+        
         document.getElementById("Rs1").innerHTML = dailyConfirmed;
         document.getElementById("Rs2").innerHTML = dailyRecovered;
         document.getElementById("Rs3").innerHTML = dailyDeaths;
-        document.getElementById("date").innerHTML = date;
-        document.getElementById("ps1").innerHTML = (tc - tr) - td;
-        document.getElementById("ps2").innerHTML = tr;
-        document.getElementById("ps3").innerHTML = td;
-        document.getElementById("ps4").innerHTML = tc;
-
       }
       for (let i in totalTested) {
         let mSource = totalTested[i].source;
