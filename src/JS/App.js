@@ -231,7 +231,7 @@ axios
         document.getElementById("Rs2").innerHTML = dailyRecovered;
         document.getElementById("Rs3").innerHTML = dailyDeaths;
         document.getElementById("date").innerHTML = date;
-        document.getElementById("ps1").innerHTML = tc - tr - td
+        document.getElementById("ps1").innerHTML = (tc - (tr + td))
         document.getElementById("ps2").innerHTML = tr;
       document.getElementById("ps3").innerHTML = td;
       document.getElementById("ps4").innerHTML = tc;
