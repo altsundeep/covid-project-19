@@ -52,7 +52,7 @@ table {
 }
 
 td {
-  font-size: 12px;
+  font-size: 14px;
   color: rgb(2, 58, 58);
   padding-top: 5px;
   padding-left: 10px;
@@ -69,20 +69,27 @@ td:nth-child(1) {
 }
 
 tr:nth-child(odd) {
-  background-color: #bac0c0;
+  background-color: #c2d4d4;
 }
 
 th {
-  font-size: 12px;
+  font-size: 14px;
   color: rgb(255, 255, 255);
-  padding-top: 5px;
+  padding-top: 10px;
   background-color: darkcyan;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   text-align: center;
   border-collapse: collapse;
 }
+
+
+#myTable0 td{
+text-align: center;
+
+}
+
 
 
 }
@@ -261,4 +268,14 @@ div.scrollmenu {
 #deltadeceased {
   font-size: 10px;
   color: sandybrown;
+}
+
+.mtbt table, th, td {
+
+  margin: 25px;
+}
+
+#myTable0 td{
+text-align: center;
+
 }
