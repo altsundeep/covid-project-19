@@ -83,12 +83,12 @@ axios
        *
        */
 
-      let summaryData = res2.data.data.summary;
-      document.getElementById("ps1").innerHTML =
-      summaryData.confirmedCasesIndian;
-      document.getElementById("ps2").innerHTML = summaryData.discharged;
-      document.getElementById("ps3").innerHTML = summaryData.deaths;
-      document.getElementById("ps4").innerHTML = summaryData.total;
+      // let summaryData = res2.data.data.summary;
+      // document.getElementById("ps1").innerHTML =
+      // summaryData.confirmedCasesIndian;
+      // document.getElementById("ps2").innerHTML = summaryData.discharged;
+      // document.getElementById("ps3").innerHTML = summaryData.deaths;
+      // document.getElementById("ps4").innerHTML = summaryData.total;
       /**
        * Summary[Ends]
        */
@@ -220,12 +220,22 @@ axios
         let dailyConfirmed = testStates[i].dailyconfirmed;
         let dailyDeaths = testStates[i].dailydeceased;
         let dailyRecovered = testStates[i].dailyrecovered;
+        let tc = testStates[i].totalconfirmed;
+        let tr = testStates[i].totalrecovered;
+        let td = testStates[i].totaldeceased;
+
+
         let date = testStates[i].date;
 
         document.getElementById("Rs1").innerHTML = dailyConfirmed;
         document.getElementById("Rs2").innerHTML = dailyRecovered;
         document.getElementById("Rs3").innerHTML = dailyDeaths;
         document.getElementById("date").innerHTML = date;
+        document.getElementById("ps1").innerHTML = tc-tr
+        document.getElementById("ps2").innerHTML = tr;
+      document.getElementById("ps3").innerHTML = td;
+      document.getElementById("ps4").innerHTML = tc;
+
       }
       for (let i in totalTested) {
         let mSource = totalTested[i].source;
