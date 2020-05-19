@@ -49,18 +49,28 @@ axios
       // / Date format[Start]
       //   * /
 
-     let mDate = statewise.map(el=>{
-       return el.lastupdatedtime;}
-      
+      let mDate = statewise.map(el => {
+        return el.lastupdatedtime;
+      }
+
       )
+      let dd = mDate.shift();
+      let f = dd.replace(/\//g, "-")
+      // let t = f.replace(/ /g, "T")
+      let fPart = f.split('-')
+      let ddd = fPart[0]
+      let mmm = fPart[1]
+      let lpart = fPart[2].split(' ')
+      let yyyy = lpart[0]
+      let tt = lpart[1]
 
-    let dd = mDate.shift();
-    let mLastModified = document.lastModified
-    let date = new Date(mLastModified)
-    let hours = date.getHours()
-    console.log(hours);
-    document.getElementById("lastUpdated").innerHTML = mLastModified;
-
+      let date = `${yyyy}-${mmm}-${ddd}:${tt}`
+      let gg = moment(date).format('LLL')
+      let ago = moment(date).fromNow(true)
+      document.getElementById("lastUpdated").innerHTML = gg
+      document.getElementById("ago").innerHTML = ago + ' ago'
+    
+      // let mLastModified = document.lastModified
     /**Date format[Ends] */
 
 

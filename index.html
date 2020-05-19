@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Covid-19 tracker</title>
     <!-- <link rel="stylesheet" href="/style.css"> -->
+    <script src="https://unpkg.com/moment@2.10.3/moment.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,6 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script defer src="./src/JS/chart.js"></script>
+    
 </head>
 
 <body>
@@ -37,8 +39,8 @@
         </div>
     </nav>
 
-    <p class="text-center p-2" style=" margin-right: 25px; margin-bottom: 5px;">Last upadated:<span
-            id='lastUpdated'></span></p>
+    <p id="tox" class="text-center p-2" style=" margin-right: 25px; margin-bottom: 5px;">Last Updated: <span
+            id='lastUpdated'></span><br/><i style="color: darkcyan;" class="fa fa-clock-o" aria-hidden="true"></i> <span id="ago"></span></p>
     <br />
     <div class="container text-center">
         <div class="my-0">
