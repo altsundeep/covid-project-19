@@ -9,7 +9,6 @@ axios.all([axios.get(URL)])
        var decreasedCase = []
        var dates = []
        
-       
        const testStates = res1.data.cases_time_series
         // console.log(testStates);
 
@@ -60,11 +59,4 @@ axios.all([axios.get(URL)])
                 }
             });
         }
-
-
-
-
-
-
-
     }))
