@@ -11,7 +11,6 @@ axios
   .then(
     axios.spread((res1, res3, res5) => {
       let col = document.getElementById("myTable");
-      let vol = document.getElementById("myTable0")
 
     /**
 
@@ -30,16 +29,65 @@ axios
     </tr>`;
 
 
-       let mTab1 = `
-    <tr>
-    <td> ${statewise[0].active}             </td>
-    <td> ${statewise[0].confirmed}<span id="deltaconfirmed">+${statewise[0].deltaconfirmed}</span></td>
-    <td> ${statewise[0].recovered}<span id="deltarecovered">+${statewise[0].deltarecovered} </span>      </td>
-    <td> ${statewise[0].deaths}<span id="deltadeceased">+${statewise[0].deltadeaths} </span>      </td> 
-    </tr>`;
+
+    let mActive = statewise[0].active;
+    let mConfirmed = statewise[0].confirmed
+    let mRecovered = statewise[0].recovered
+    let mDeaths = statewise[0].deaths
+    let mTotal  = parseInt(mActive)  + parseInt(mConfirmed) +  parseInt(mRecovered) + parseInt(mDeaths) ;
+
+    console.log(mTotal)
+
+    let activeCasesPercentage = (mActive / mTotal) * 100;
+
+    let mActiveCasesPercentage = activeCasesPercentage.toFixed(2);
+    
+    let confirmedCasesPercentage = (mConfirmed / mTotal) * 100;
+
+    let mConfirmedCasesPercentage = confirmedCasesPercentage.toFixed(2);
+
+
+    let recoveredCasesPercentage = (mRecovered / mTotal) * 100;
+
+    let mRecoveredCasesPercentage = recoveredCasesPercentage.toFixed(2);
+
+
+    let deathCasesPercentage = (mDeaths / mTotal) * 100;
+
+    let mDeathCasesPercentage = deathCasesPercentage.toFixed(2);
+
+
+
+
+
+
+
+    document.getElementById("active-percentage").innerHTML = mActiveCasesPercentage ;
+    document.getElementById("confirmed-percentage").innerHTML = mConfirmedCasesPercentage;
+    document.getElementById("recovered-percentage").innerHTML = mRecoveredCasesPercentage;
+    document.getElementById("deaths-percentage").innerHTML = mDeathCasesPercentage;
+
+
+
+    document.getElementById("Active").innerHTML = mActive;
+    document.getElementById("confirmed").innerHTML = mConfirmed;
+    document.getElementById("recovered").innerHTML = mRecovered;
+    document.getElementById("deaths").innerHTML = mDeaths;
+    
+
+
+
+
+    //    let mTab1 = `
+    // <tr>
+    // <td> ${statewise[0].active}             </td>
+    // <td> ${statewise[0].confirmed}<span id="deltaconfirmed">+${statewise[0].deltaconfirmed}</span></td>
+    // <td> ${statewise[0].recovered}<span id="deltarecovered">+${statewise[0].deltarecovered} </span>      </td>
+    // <td> ${statewise[0].deaths}<span id="deltadeceased">+${statewise[0].deltadeaths} </span>      </td> 
+    // </tr>`;
 
       col.innerHTML += row;
-      vol.innerHTML = mTab1
+      // vol.innerHTML = mTab1
 
       }
       /***

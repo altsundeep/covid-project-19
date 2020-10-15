@@ -26,8 +26,8 @@ axios.all([axios.get(URL)])
             var myDates = testStates[i].date
             dates.push(myDates)
 
-
-            var ctx = document.getElementById('myChart').getContext('2d');
+            Chart.defaults.global.legend.display = false;
+            var ctx = document.getElementById('recovered-chart').getContext('2d');
             var chart = new Chart(ctx,
                  {
                 type: 'line',
@@ -36,27 +36,10 @@ axios.all([axios.get(URL)])
                     labels: dates.slice(-7),
                     datasets: [{
                         fill: false,
-                        label: 'Confirmed',
                         fillColor: "rgba(220,220,220,0.2)",
                         borderColor: 'rgb(0,0,205)',
-                        data: confirmedCase.slice(-7)
-
-                    }
-                    , {
-                            label: 'Recoverd',
-                            fillColor: "rgba(220,220,220,0.2)",
-                            borderColor: 'rgb(0,128,0)',
-                            data: recoveredCase.slice(-7),
-                            fill: false
-                        }, 
-                        
-                        {
-                            label: 'Deaths',
-                            fillColor: "rgba(220,220,220,0.2)",
-                            borderColor: 'rgb(255,0,0)',
-                            data: decreasedCase.slice(-7),
-                            fill: false
-                        },
+                        data: recoveredCase.slice(-5) }
+                    
 
                 ],fill: false
                 },
@@ -64,9 +47,14 @@ axios.all([axios.get(URL)])
 
                     scales: {
                         yAxes: [{
+                            display : false,
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                color: 'rgba(220,220,220,0.2)'
                             }
+                        }],
+                        xAxes: [{
+                            display: false,
                         }]
                     }
                     
@@ -74,3 +62,6 @@ axios.all([axios.get(URL)])
             });
         }
     }))
+
+
+    

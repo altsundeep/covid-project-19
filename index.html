@@ -17,18 +17,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script defer src="./src/JS/chart.js"></script>
-    
+    <script defer src="./src/JS/confirmed-chart.js"></script>
+    <script defer src="./src/JS/recovered-chart.js"></script>
+    <script defer src="./src/JS/deceased-chart.js"></script>
+    <script defer src="./src/JS/active-chart.js"></script>
+
 </head>
 
 <body>
 
-    <!--  -->
+    <!-- navbar -->
     <nav class="navbar navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: darkcyan;">
         <a class="navbar-brand" href=""> <img id="logo" height="48px" class="d-inline-block align-center"
                 src="./src/assets/logo.png" alt="" /> Covid-19 tracker India</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav float-right">
@@ -40,7 +44,8 @@
     </nav>
 
     <p id="tox" class="text-center p-2" style=" margin-right: 25px; margin-bottom: 5px;">Last Updated: <span
-            id='lastUpdated'></span><br/><i style="color: darkcyan;" class="fa fa-clock-o" aria-hidden="true"></i> <span id="ago"></span></p>
+            id='lastUpdated'> </span><br /><i style="color: darkcyan;" class="fa fa-clock-o" aria-hidden="true"></i>
+        <span id="ago"></span></p>
     <br />
     <div class="container text-center">
         <div class="my-0">
@@ -54,6 +59,7 @@
         </div>
     </div>
     <br />
+
     <div class="container-fluid testimonial-group">
         <div class="scrollmenu">
             <div id="show-data-list">
@@ -63,69 +69,198 @@
     </div>
 
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <table class="mtbt table table-sm">
-                    <thead>
-                        <th class="text-center" colspan="4">
-                            Overall Corona Cases In India
-                        </th>
-                        <tr>
-                            <td class="luc text-center">
-                                <img src="./src/assets/logo2.png" height="48px" alt="">
-                                <br /> Active
-                            </td>
-                            <td class="luc text-center"><img src="./src/assets/logo4.png" height="48px"
-                                    alt=""><br />
-                                Confirmed</td>
-                            <td class="luc text-center"><img src="./src/assets/logo3.png" height="48px"
-                                    alt=""><br />Recovered</th>
-                            <td class="luc text-center"><img src="./src/assets/logo1.png" height="48px"
-                                    alt=""><br />Deaths</td>
-                        </tr>
-                    </thead>
-                    <tbody id="myTable0">
-                    </tbody>
-                </table>
+            <div class="col-md">
+                <div class="card">
+                    <div class="c-row">
+                        <div class="textp">
+                            <div class="card-titles"> Active </div>
+                            <div style="color: red; font-weight: bold;" class="card-Subtitles">
+                                <span id="Active"> </span> <br />
+                                <span>Infected Rate:</span> <span id="active-percentage"> </span><span>%</span>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="mgraph">
+                            <div class="graph" style="height: 48px; width: 108px;">
+                                <canvas style="height: 3rem;" class="confirmed" id="confirmed-chart">
+                                </canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
 
-            <div class="col-md-4">
-                <table class="table table table-sm">
-                    <thead>
-                        <th class="text-center" colspan="4">
-                            Corona Cases Of <span id='date'></span>
-                        </th>
-                        <tr>
-                            <th class="text-center">Total confirmed</td>
-                            <th class="text-center">Total Recovered</td>
-                            <th class="text-center">Deaths</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td class="text-center"><span id='Rs1'></span></td>
-                        <td class="text-center"><span id='Rs2'></span></td>
-                        <td class="text-center"><span id='Rs3'></span></td>
-                    </tr>
-                </table>
+
+
+
+            <div class="col-md">
+                <div class="card">
+                    <div class="c-row">
+                        <div class="textp">
+                            <div class="card-titles"> Confirmed </div>
+                            <div style="color: red; font-weight: bold;" class="card-Subtitles">
+                                <span id="confirmed"> </span> <br />
+                                <span>Confirmed Rate:</span> <span id="confirmed-percentage"> </span><span>%</span>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="mgraph">
+                            <div class="graph" style="height: 48px; width: 108px;">
+                                <canvas style="height: 3rem;" class="confirmed" id="active-chart">
+                                </canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
-            <div class="col-md-4">
-                <table class="table table table-sm">
-                    <th colspan="3">
-                        Data Updated On: <span id='smp3'></span>
-                    </th>
-                    <tr>
-                        <td>Total Samples Tested</td>
-                        <td> Data Source :</td>
-                    </tr>
-                    <tr>
-                        <td><span id='smp2'></span></td>
-                        <td> <a href="#" id="link">View ICMR Data</a></td>
-                    </tr>
-                </table>
+
+
+
+            <div class="col-md">
+                <div class="card">
+                    <div class="c-row">
+                        <div class="textp">
+                            <div class="card-titles"> Recovered </div>
+                            <div style="color: red; font-weight: bold;" class="card-Subtitles">
+                                <span id="recovered"> </span> <br />
+                                <span>Recovery Rate:</span> <span id="recovered-percentage"> </span><span>%</span>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="mgraph">
+                            <div class="graph" style="height: 48px; width: 108px;">
+                                <canvas style="height: 3rem;" class="confirmed" id="recovered-chart">
+                                </canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
+
+            <div class="col-md">
+                <div class="card">
+                    <div class="c-row">
+                        <div class="textp">
+                            <div class="card-titles"> Deceased </div>
+                            <div style="color: red; font-weight: bold;" class="card-Subtitles">
+                                <span id="deaths"> </span> <br />
+                                <span>Mortality Rate</span> <span id="deaths-percentage"> </span><span>%</span>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="mgraph">
+                            <div class="graph" style="height: 48px; width: 108px;">
+                                <canvas style="height: 3rem;" class="confirmed" id="deceased-chart">
+                                </canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
         </div>
     </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- corna cases of Day block End -->
+
+
+<div class="container">
+
+        <table class="table table table-sm">
+            <th colspan="3">
+                Data Updated On: <span id='smp3'></span>
+            </th>
+            <tr>
+                <td> Total Samples Tested </td>
+                <td> Data Source :</td>
+            </tr>
+            <tr>
+                <td><span id='smp2'></span></td>
+                <td> <a href="#" id="link">View ICMR Data</a></td>
+            </tr>
+        </table>
+
+</div>
+
+<div class="container">
+        <table class="table table table-sm">
+            <thead>
+                <th class="text-center" colspan="4">
+                    Corona Cases Of <span id='date'></span>
+                </th>
+                <tr>
+                    <th class="text-center">Total confirmed</td>
+                    <th class="text-center">Total Recovered</td>
+                    <th class="text-center">Deaths</td>
+                </tr>
+            </thead>
+            <tr>
+                <td class="text-center"><span id='Rs1'></span></td>
+                <td class="text-center"><span id='Rs2'></span></td>
+                <td class="text-center"><span id='Rs3'></span></td>
+            </tr>
+        </table> 
+
+</div>
+
+   
+
+
+    </div>
+    </div>
+
+
+
+
+
     <div class="container">
         <div id="dailyStates"></div>
     </div>
@@ -138,11 +273,11 @@
                             <th class="text-center" colspan="5">Coranvirus Cases(Statewise) data</th>
                         </tr>
                         <tr>
-                            <th>State</th>
-                            <th>Active</th>
-                            <th>Confirmed</th>
-                            <th>Recovered</th>
-                            <th>Deaths</th>
+                            <th> State </th>
+                            <th> Active </th>
+                            <th> Confirmed </th>
+                            <th> Recovered </th>
+                            <th> Deaths </th>
                         </tr>
                     </thead>
                     <tbody id="myTable">
@@ -157,7 +292,7 @@
                 </div>
 
                 <div class="container">
-                    <h6 class="text-center">Last 7 days data</h6>
+                    <h6 class="text-center"> Last 7 days data</h6>
                     <div>
                         <canvas class="p-2" height="350px" id="myChart">
                         </canvas>
@@ -165,71 +300,70 @@
                 </div>
             </div>
         </div>
-    </div>
-    <h3 class="p-2 h33 text-center bg-darkcyan"> How to pravent youself from covid-19 </h3>
-    <div class="container-fluid text-center">
-        <div class="row p-5 bg-light">
-            <div class="col-md-3">
-                <img id="covid-btm-img" src="./src/assets/covid_wear_mask.png" alt="">
-            </div>
-            <div class="col-md-3">
-                <img id="covid-btm-img" src="./src/assets/covid_wash_hands.png" alt="">
-            </div>
-            <div class="col-md-3">
-                <img id="covid-btm-img" src="./src/assets/social_distancing.png" alt="">
-            </div>
-            <div class="col-md-3">
-                <img id="covid-btm-img" src="./src/assets/covid_visit_doctor.png" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row dLink">
-            <div class="col-md-3">
-                <span class="icon">
-                    <img src="./src/assets/hands-and-gestures.png" alt="" srcset=""></span>
-                <div class="content">
-                    <h3 class="">Wash your hands</h3>
-                    <p>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</p>
+        <h3 class="p-2 h33 text-center bg-darkcyan"> How to pravent youself from covid-19 </h3>
+        <div class="container-fluid text-center">
+            <div class="row p-5 bg-light">
+                <div class="col-md-3">
+                    <img id="covid-btm-img" src="./src/assets/covid_wear_mask.png" alt="">
                 </div>
-            </div>
-            <div class="col-md-3">
-                <span class="icon">
-                    <img src="./src/assets/social.png" alt="" srcset=""> </span>
-
-                <div class="content">
-                    <h3 class="">Social Distancing</h3>
-                    <p>Maintain a safe distance from anyone who is coughing or sneezing.</p>
+                <div class="col-md-3">
+                    <img id="covid-btm-img" src="./src/assets/covid_wash_hands.png" alt="">
                 </div>
-            </div>
-
-            <div class="col-md-3">
-                <span class="icon">
-                    <img src="./src/assets/bacteria.png" alt="" srcset=""> </span>
-                <div class="content">
-                    <h3 class="">Mask your face</h3>
-                    <p>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</p>
+                <div class="col-md-3">
+                    <img id="covid-btm-img" src="./src/assets/social_distancing.png" alt="">
                 </div>
-
-            </div>
-
-            <div class="col-md-3">
-                <span class="icon">
-                    <img src="./src/assets/surgeon.png" alt="" srcset="">
-                </span>
-                <div class="content">
-                    <h3 class="">consult with doctor</h3>
-                    <p>If you have a fever, a cough, and difficulty breathing, seek medical attention. Call in
-                        advance.
-                        Follow the directions of your local health authority.</p>
+                <div class="col-md-3">
+                    <img id="covid-btm-img" src="./src/assets/covid_visit_doctor.png" alt="">
                 </div>
             </div>
         </div>
-    </div>
-    <footer>
-        <h1 class="p-3 small text-white text-center">Made with <span id="heart"> ❤ </span>by <span
-                id="ft">Sandeep</span></h1>
-    </footer>
+        <div class="container-fluid">
+            <div class="row dLink">
+                <div class="col-md-3">
+                    <span class="icon">
+                        <img src="./src/assets/hands-and-gestures.png" alt="" srcset=""></span>
+                    <div class="content">
+                        <h3 class="">Wash your hands</h3>
+                        <p>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <span class="icon">
+                        <img src="./src/assets/social.png" alt="" srcset=""> </span>
+
+                    <div class="content">
+                        <h3 class="">Social Distancing</h3>
+                        <p>Maintain a safe distance from anyone who is coughing or sneezing.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <span class="icon">
+                        <img src="./src/assets/bacteria.png" alt="" srcset=""> </span>
+                    <div class="content">
+                        <h3 class="">Mask your face</h3>
+                        <p>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</p>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <span class="icon">
+                        <img src="./src/assets/surgeon.png" alt="" srcset="">
+                    </span>
+                    <div class="content">
+                        <h3 class=""> consult with doctor</h3>
+                        <p>If you have a fever, a cough, and difficulty breathing, seek medical attention. Call in
+                            advance.
+                            Follow the directions of your local health authority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <h1 class="p-3 small text-white text-center">Made with <span id="heart"> ❤ </span>by <span
+                    id="ft">Sandeep</span></h1>
+        </footer>
 </body>
 
 </html>
